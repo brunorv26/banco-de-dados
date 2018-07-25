@@ -21,7 +21,7 @@ show tables;
 describe tb_cliente;
 -- Inserindo dados na tabela (GRUD - Create)
 insert into tb_cliente values
-(1,'489.202.288/84','Bruno Rodrigues Vieira','Av Waldemar Tietz','Waldemar','1098','11B','Cohab','São Paulo','SP','4002-8922','08007777000','bruninho_rodriguesv@hotmail.com','03589001');
+(1,'520.202.290/98','Bruno Rodrigues Vieira','Av Waldemar','Waldemar','1050','21B','Cohab','São Paulo','SP','4002-8922','08007777000','bruno@gmail.com','04489801');
 -- pesquisando dados na tabela (GRUD - Read)
 select *from tb_cliente;
 
