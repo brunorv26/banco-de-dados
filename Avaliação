@@ -1,0 +1,42 @@
+-- ___________________Avaliação _____________________--
+
+
+
+
+
+
+create table tb_os(
+idos int auto_increment primary key,
+data_os timestamp default current_timestamp,
+tipo1 varchar(15)not null,
+situacao varchar(20)not null,
+equipamento varchar(200) not null,
+defeito varchar(200)not null,
+servico varchar (200),
+tecnico varchar(200),
+valor decimal (10,2)
+);
+
+alter table tb_os add idcli int;
+alter table tb_os add constraint cliente_os foreign key (idcli) references tb_cliente(idcli) on delete no action;
+
+drop table tb_os; 
+
+alter table tb_os auto_increment = 10000;
+ 
+select * from tb_cliente;
+
+insert into tb_os(tipo1,situacao,equipamento,defeito,servico,tecnico,valor,idcli)
+values ('Conserto','Aprovado','Notebook lenovo','Não liga','trocar fonte','Robson',120,1);
+
+insert into tb_os(tipo1,situacao,equipamento,defeito,servico,tecnico,valor,idcli)
+values ('Conserto','Aprovado','Fonte de PC','Queimou','trocar hardware','Geovani',100,2);
+
+insert into tb_os(tipo1,situacao,equipamento,defeito,servico,tecnico,valor,idcli)
+values ('Conserto','Aprovado','Teclado','Quebrou algumas teclas','trocar teclas','Victor',70,3);
+
+
+select O.idos as OS, tipo1 as Tipo,situacao as Situação,equipamento as Equipamento,defeito as Defeito,servico as Serviço,tecnico as Técnico,valor as Total,
+C.nomecli as Nome, fone1 as Fone, emailcli as email, data_os as DataOs
+from tb_os as O
+inner join tb_cliente as C on (O.idcli = C.idcli);
