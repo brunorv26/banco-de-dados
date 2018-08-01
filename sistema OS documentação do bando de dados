@@ -32,6 +32,51 @@ insert into tb_cliente values
 insert into tb_cliente values
 (null,'820.645.300/70','Vitor Zelli','Pewter','Route31','1100','21B','Kanto','Johto','AC','4002-8942','08007777040','rx@outlook.com','03545001');
 
+drop table tb_cliente;
+
+
+
+insert into tb_cliente values
+(null);
+
+
+
+select *from tb_cliente;
+
+
+drop table tb_cliente;
+
+
+
+use dbinfox;
+
+create table tb_usuarios(
+iduser int primary key,
+usuario varchar(50)not null,
+senha varchar(15)not null,
+login varchar(50)not null unique,
+perfil varchar(50) not null,
+fone varchar(50)not null,
+email varchar(50)not null
+);
+show tables;
+-- Descrevendo a tabela
+describe tb_usuarios;
+-- Inserindo dados na tabela (GRUD - Create)
+insert into tb_usuarios values
+(1,'Bruno Rodrigues Vieira','123@senac','brunera','Aluno do Senac','1111-1111');
+-- pesquisando dados na tabela (GRUD - Read)
+select *from tb_usuarios;
+insert into tb_usuarios values
+(2,'Victor','123@senac','Victao','Aluno do Senac','2222-2222');
+insert into tb_usuarios values
+(3,'Lucas','123@senac','LuquinhaDoidera','Aluno do Senac','3333-3333');
+
+
+
+
+
+
 
 -- ___________________Avaliação _____________________--
 
@@ -74,4 +119,12 @@ values ('Conserto','Aprovado','Teclado','Quebrou algumas teclas','trocar teclas'
 select O.idos as OS, tipo1 as Tipo,situacao as Situação,equipamento as Equipamento,defeito as Defeito,servico as Serviço,tecnico as Técnico,valor as Total,
 C.nomecli as Nome, fone1 as Fone, emailcli as email, data_os as DataOs
 from tb_os as O
+inner join tb_cliente as C on (O.idcli = C.idcli);
+ 
+ 
+select * from tb_os;
+
+drop table tb_usuarios;
+
+delete from tb_os where idos = 9;
 inner join tb_cliente as C on (O.idcli = C.idcli);
